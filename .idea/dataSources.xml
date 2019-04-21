@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<<<<<<< Updated upstream
     <data-source source="LOCAL" name="Tasks@197.44.4.216" uuid="898014bc-4a91-4aba-8347-2caf40ba8825">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
       <jdbc-url>jdbc:sqlserver://197.44.4.216;database=Tasks</jdbc-url>
+=======
+    <data-source source="LOCAL" name="Tasks@197.44.4.216" uuid="4517e41f-fe4a-4b0e-a797-a2c9eb1d09b4">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://197.44.4.216:1433;database=Tasks</jdbc-url>
+>>>>>>> Stashed changes
       <driver-properties>
         <property name="applicationName" value="DataGrip" />
       </driver-properties>
