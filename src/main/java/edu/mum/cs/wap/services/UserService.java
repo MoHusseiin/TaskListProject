@@ -1,4 +1,6 @@
 package edu.mum.cs.wap.services;
 
-public class UserService {
+import edu.mum.cs.wap.models.User;
+
+public class UserService extends Service<User> implements IUserService<User> {
 }

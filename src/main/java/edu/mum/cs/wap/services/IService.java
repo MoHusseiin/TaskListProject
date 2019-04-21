@@ -1,6 +1,11 @@
 package edu.mum.cs.wap.services;
 
-public interface IService {
+import java.util.List;
 
-    boolean Create();
+public interface IService<T> {
+
+    boolean Create(T model);
+    boolean Update (T model);
+    T GetById(int id);
+    List<T> GetAll();
 }
