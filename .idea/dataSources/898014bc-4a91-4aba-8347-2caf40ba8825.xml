@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Tasks@197.44.4.216">
+  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.14">
+    <root id="1">
+      <ServerVersion>12.0.2000</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="Addresses">
+      <ObjectId>15</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="3" parent="1" name="AsfourCenter">
+      <ObjectId>16</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="4" parent="1" name="FotoExpress">
+      <ObjectId>14</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="5" parent="1" name="GL">
+      <ObjectId>8</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="6" parent="1" name="OAttendance">
+      <ObjectId>13</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="7" parent="1" name="OCEANDRO-DBMS">
+      <ObjectId>17</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="8" parent="1" name="PAF-DBMS">
+      <ObjectId>9</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="9" parent="1" name="ReportServer">
+      <ObjectId>5</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="10" parent="1" name="ReportServerTempDB">
+      <ObjectId>6</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="11" parent="1" name="SQM DBMS">
+      <ObjectId>11</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="12" parent="1" name="SQM FIN DBMS">
+      <ObjectId>10</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="13" parent="1" name="Searg">
+      <ObjectId>12</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="14" parent="1" name="Tasks">
+      <ObjectId>7</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="15" parent="1" name="master">
+      <ObjectId>1</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="16" parent="1" name="model">
+      <ObjectId>3</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="17" parent="1" name="msdb">
+      <ObjectId>4</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="18" parent="1" name="oHMSElserag">
+      <ObjectId>18</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <database id="19" parent="1" name="tempdb">
+      <ObjectId>2</ObjectId>
+      <Collation>Arabic_CI_AI</Collation>
+    </database>
+    <schema id="20" parent="14" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+    </schema>
+    <schema id="21" parent="14" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+    </schema>
+    <schema id="22" parent="14" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+    </schema>
+    <schema id="23" parent="14" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+    </schema>
+    <schema id="24" parent="14" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+    </schema>
+    <schema id="25" parent="14" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+    </schema>
+    <schema id="26" parent="14" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+    </schema>
+    <schema id="27" parent="14" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+    </schema>
+    <schema id="28" parent="14" name="db_owner">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <schema id="29" parent="14" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+    </schema>
+    <schema id="30" parent="14" name="dbo">
+      <ObjectId>1</ObjectId>
+      <IntrospectionTimestamp>2019-04-21.15:18:43.133</IntrospectionTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="31" parent="14" name="guest">
+      <ObjectId>2</ObjectId>
+    </schema>
+    <schema id="32" parent="14" name="sys">
+      <ObjectId>4</ObjectId>
+    </schema>
+    <table id="33" parent="30" name="Category">
+      <ObjectId>453576654</ObjectId>
+      <CreatedTimestamp>2019-04-21.01:20:33.603</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-21.01:20:33.780</ModifiedTimestamp>
+    </table>
+    <table id="34" parent="30" name="Task">
+      <ObjectId>309576141</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:13.197</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-21.01:20:32.300</ModifiedTimestamp>
+    </table>
+    <table id="35" parent="30" name="Team">
+      <ObjectId>341576255</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:13.893</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-21.01:20:33.013</ModifiedTimestamp>
+    </table>
+    <table id="36" parent="30" name="TeamUser">
+      <ObjectId>373576369</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:14.590</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:16.180</ModifiedTimestamp>
+    </table>
+    <table id="37" parent="30" name="User">
+      <ObjectId>277576027</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:11.880</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:16.707</ModifiedTimestamp>
+    </table>
+    <table id="38" parent="30" name="UserType">
+      <ObjectId>245575913</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:11.107</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:15.133</ModifiedTimestamp>
+    </table>
+    <column id="39" parent="33" name="CategoryID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="33" name="CategoryName">
+      <Position>2</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <index id="41" parent="33" name="PK_Category\">
+      <Position>1</Position>
+      <ColNames>CategoryID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="33" name="PK_Category\">
+      <ObjectId>469576711</ObjectId>
+      <CreatedTimestamp>2019-04-21.01:20:33.780</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-21.01:20:33.780</ModifiedTimestamp>
+      <ColNames>CategoryID</ColNames>
+      <UnderlyingIndexName>PK_Category\</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="43" parent="34" name="TaskID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="34" name="Description">
+      <Position>2</Position>
+      <DataType>nvarchar(200 char)|0s</DataType>
+    </column>
+    <column id="45" parent="34" name="IsCompleted">
+      <Position>4</Position>
+      <DataType>bit|0s</DataType>
+    </column>
+    <column id="46" parent="34" name="AssignedTo_UserID">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="47" parent="34" name="DueDate">
+      <Position>6</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <column id="48" parent="34" name="PriorityID">
+      <Position>7</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="49" parent="34" name="CategoryID">
+      <Position>8</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <index id="50" parent="34" name="PK_Task">
+      <Position>1</Position>
+      <ColNames>TaskID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="51" parent="34" name="PK_Task">
+      <ObjectId>325576198</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:13.377</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:13.377</ModifiedTimestamp>
+      <ColNames>TaskID</ColNames>
+      <UnderlyingIndexName>PK_Task</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="52" parent="34" name="FK_Task_User">
+      <ObjectId>437576597</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:16.703</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:16.703</ModifiedTimestamp>
+      <ColNames>AssignedTo_UserID</ColNames>
+      <RefTableId>277576027</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>User</RefTableName>
+      <RefKeyName>PK_Users</RefKeyName>
+      <RefColNames>UserID</RefColNames>
+    </foreign-key>
+    <column id="53" parent="35" name="TeamID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="35" name="TeamName">
+      <Position>2</Position>
+      <DataType>nvarchar(200 char)|0s</DataType>
+    </column>
+    <column id="55" parent="35" name="ProjectName">
+      <Position>3</Position>
+      <DataType>nvarchar(200 char)|0s</DataType>
+    </column>
+    <column id="56" parent="35" name="TeamMangerID">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <index id="57" parent="35" name="PK_Team">
+      <Position>1</Position>
+      <ColNames>TeamID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="58" parent="35" name="PK_Team">
+      <ObjectId>357576312</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:14.070</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:14.070</ModifiedTimestamp>
+      <ColNames>TeamID</ColNames>
+      <UnderlyingIndexName>PK_Team</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="59" parent="36" name="TeamID">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="60" parent="36" name="UserID">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <foreign-key id="61" parent="36" name="FK_TeamUser_Team">
+      <ObjectId>421576540</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:16.180</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:16.180</ModifiedTimestamp>
+      <ColNames>TeamID</ColNames>
+      <RefTableId>341576255</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>Team</RefTableName>
+      <RefKeyName>PK_Team</RefKeyName>
+      <RefColNames>TeamID</RefColNames>
+    </foreign-key>
+    <foreign-key id="62" parent="36" name="FK_TeamUser_User">
+      <ObjectId>405576483</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:15.657</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:15.657</ModifiedTimestamp>
+      <ColNames>UserID</ColNames>
+      <RefTableId>277576027</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>User</RefTableName>
+      <RefKeyName>PK_Users</RefKeyName>
+      <RefColNames>UserID</RefColNames>
+    </foreign-key>
+    <column id="63" parent="37" name="UserID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="37" name="Username">
+      <Position>2</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <column id="65" parent="37" name="Password">
+      <Position>3</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <column id="66" parent="37" name="UserTypeID">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <index id="67" parent="37" name="PK_Users">
+      <Position>1</Position>
+      <ColNames>UserID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="68" parent="37" name="PK_Users">
+      <ObjectId>293576084</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:12.680</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:12.680</ModifiedTimestamp>
+      <ColNames>UserID</ColNames>
+      <UnderlyingIndexName>PK_Users</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="69" parent="37" name="FK_User_UserType">
+      <ObjectId>389576426</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:15.130</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:15.130</ModifiedTimestamp>
+      <ColNames>UserTypeID</ColNames>
+      <RefTableId>245575913</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>UserType</RefTableName>
+      <RefKeyName>PK_UserTypes</RefKeyName>
+      <RefColNames>UserTypeID</RefColNames>
+    </foreign-key>
+    <column id="70" parent="38" name="UserTypeID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="38" name="UserType">
+      <Position>2</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <index id="72" parent="38" name="PK_UserTypes">
+      <Position>1</Position>
+      <ColNames>UserTypeID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="73" parent="38" name="PK_UserTypes">
+      <ObjectId>261575970</ObjectId>
+      <CreatedTimestamp>2019-04-19.22:27:11.333</CreatedTimestamp>
+      <ModifiedTimestamp>2019-04-19.22:27:11.333</ModifiedTimestamp>
+      <ColNames>UserTypeID</ColNames>
+      <UnderlyingIndexName>PK_UserTypes</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
