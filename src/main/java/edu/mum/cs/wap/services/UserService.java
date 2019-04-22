@@ -57,4 +57,14 @@ public class UserService  implements IUserService<User> {
         }
         return result;
     }
+
+    public User getUser(String userName, String password) {
+        User user = null;
+        try {
+            user = UserRep.getUser(userName, password);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return  user;
+    }
 }

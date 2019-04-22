@@ -57,4 +57,18 @@ public class UserRep {
         DBConnection.closeConnection();
         return Users;
     }
+
+    public static User getUser(String userName, String password) throws SQLException {
+        String sql = "Select * From [User] Where Username ='"+userName+"' AND Password = "+password;
+        ResultSet rs = DBConnection.executeDBSet(sql);
+        User user = null;
+        while (rs.next()) {
+            user = new User();
+            user.setUserID(rs.getInt("UserID"));
+            user.setPassword(rs.getString("Username"));
+            user.setUserName(rs.getString("Password"));
+            user.setUserType(UserType.values()[rs.getInt("UserTypeID")]);
+        }
+        return user;
+    }
 }
