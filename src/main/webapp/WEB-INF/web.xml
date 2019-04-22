@@ -5,6 +5,6 @@
 <web-app>
   <display-name>Tasks List Created Web Application</display-name>
   <welcome-file-list>
-    <welcome-file>/</welcome-file>
+    <welcome-file>login</welcome-file>
   </welcome-file-list>
 </web-app>
