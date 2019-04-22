@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/MyStyle.css">
+
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
@@ -60,8 +62,11 @@
                     <h3 class="box-title">Quick Example</h3>
                 </div>
                 <!-- /.box-header -->
+                <div class="error-message" id="err">
+
+                </div>
                 <!-- form start -->
-                <form role="form" action="Users" method="post">
+                <form role="form" action="Users" method="post" id="frmUser">
                     <input type="hidden" name="UserID" value="${user.userID}">
                     <div class="box-body">
                         <div class="form-group">
@@ -112,6 +117,8 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<!-- Our Scripts-->
 
+<script src="javaScript/Users/addUser.js"></script>
 </body>
 </html>

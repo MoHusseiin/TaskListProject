@@ -78,10 +78,11 @@
         <td>${item.userName}</td>
         <td>${item.userType}</td>
         <td>
-            <div>
-            <a href="Users?updateUser=${item.userID}" class="btn btn-block btn-primary newElement">Update User</a>
-                <a href="#" class="btn btn-block btn-primary newElement">Delete User</a>
-        </div>
+
+                <div class="col-md-3"><a href="Users?updateUser=${item.userID}" class="btn btn-block btn-primary newElement">Update User</a>
+                </div>
+                <div class="col-md-3"><a href="#" data-id="${item.userID}"  class="btn btn-block btn-primary newElement deleteBtn">Delete User</a>
+                </div>
         </td>
 
     </tr>
@@ -114,6 +115,9 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<!-- Our Scripts-->
+
+<script src="javaScript/Users/users.js"></script>
 
 </body>
 </html>

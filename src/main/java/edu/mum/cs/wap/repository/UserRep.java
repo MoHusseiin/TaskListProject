@@ -19,8 +19,8 @@ public class UserRep {
         return( DBConnection.executeNonQuery(sql));
     }
 
-    public  static boolean RemoveUser(User User) throws SQLException {
-        String sql = "Delete From [User] Where UserID ='"+User.getUserID()+"'";
+    public  static boolean RemoveUser(int id) throws SQLException {
+        String sql = "Delete From [User] Where UserID ="+id;
         return( DBConnection.executeNonQuery(sql));
     }
 

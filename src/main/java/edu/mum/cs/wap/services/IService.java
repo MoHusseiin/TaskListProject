@@ -8,4 +8,5 @@ public interface IService<T> {
     boolean Update (T model);
     T GetById(int id);
     List<T> GetAll();
+    boolean Delete(int id);
 }

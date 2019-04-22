@@ -1,5 +1,7 @@
 package edu.mum.cs.wap.controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import edu.mum.cs.wap.models.User;
 import edu.mum.cs.wap.models.UserType;
 import edu.mum.cs.wap.services.IUserService;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet("/Users")
@@ -63,7 +66,23 @@ public class UsersServlet extends HttpServlet {
 
     }
 
-    private void LoadAllUsers ( HttpSession session,HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        IUserService userService=new UserService();
+        HttpSession  session=req.getSession();
+
+        String userId=req.getParameter("UserID");
+        if(!userId.isEmpty()){
+            Integer id=Integer.parseInt(userId);
+           boolean result= userService.Delete(id);
+            resp.setContentType("application/json");
+            PrintWriter out=resp.getWriter();
+            out.print(result);
+        }
+
+    }
+
+    private void LoadAllUsers (HttpSession session, HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
         IUserService userService=new UserService();
         List<User> users=userService.GetAll();
         session.setAttribute("users",users);

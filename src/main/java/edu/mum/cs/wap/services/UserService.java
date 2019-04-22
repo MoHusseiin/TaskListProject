@@ -67,4 +67,16 @@ public class UserService  implements IUserService<User> {
         }
         return  user;
     }
+
+    @Override
+    public boolean Delete(int id) {
+        boolean result=false;
+        try {
+            result = UserRep.RemoveUser(id);
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
