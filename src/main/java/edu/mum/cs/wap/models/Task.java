@@ -5,22 +5,29 @@ import java.time.LocalDate;
 public class Task {
 
   private Integer taskId;
-  private User user;
   private String taskDesc;
+  private User user;
   private Category category;
   private LocalDate dueDate;
-  private Periority periority;
+  private Priority priority;
   private Boolean isCompleted;
+  private String remarks;
 
-  public Task(Integer taskId, User user, String taskDesc, Category category, LocalDate dueDate,
-      Periority periority, Boolean isCompleted) {
+  public Task()
+  {
+
+  }
+
+  public Task(Integer taskId, String taskDesc, User user, Category category, LocalDate dueDate,
+      Priority priority, Boolean isCompleted, String remarks) {
     this.taskId = taskId;
-    this.user = user;
     this.taskDesc = taskDesc;
+    this.user = user;
     this.category = category;
     this.dueDate = dueDate;
-    this.periority = periority;
+    this.priority = priority;
     this.isCompleted = isCompleted;
+    this.remarks = remarks;
   }
 
   public Integer getTaskId() {
@@ -63,12 +70,12 @@ public class Task {
     this.dueDate = dueDate;
   }
 
-  public Periority getPeriority() {
-    return periority;
+  public Priority getPriority() {
+    return priority;
   }
 
-  public void setPeriority(Periority periority) {
-    this.periority = periority;
+  public void setPriority(Priority priority) {
+    this.priority = priority;
   }
 
   public Boolean getCompleted() {
@@ -77,5 +84,13 @@ public class Task {
 
   public void setCompleted(Boolean completed) {
     isCompleted = completed;
+  }
+
+  public String getRemarks() {
+    return remarks;
+  }
+
+  public void setRemarks(String remarks) {
+    this.remarks = remarks;
   }
 }
