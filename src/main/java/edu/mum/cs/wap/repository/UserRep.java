@@ -15,13 +15,28 @@ public class UserRep {
     }
 
     public  static boolean updateUser(User User) throws SQLException {
-        String sql = "UPDATE    User SET  UserName = '"+User.getUserName()+"', Password = '"+User.getUserName()+"', UserTypeID = "+User.getUserType().ordinal()+" Where UserID = '"+User.getUserID()+"' ";
+        String sql = "UPDATE [User] SET  UserName = '"+User.getUserName()+"', Password = '"+User.getUserName()+"', UserTypeID = "+User.getUserType().ordinal()+" Where UserID = "+User.getUserID();
         return( DBConnection.executeNonQuery(sql));
     }
 
     public  static boolean RemoveUser(User User) throws SQLException {
         String sql = "Delete From [User] Where UserID ='"+User.getUserID()+"'";
         return( DBConnection.executeNonQuery(sql));
+    }
+
+    public static User GetUserById(int id) throws SQLException {
+
+        String sql= "Select * From [User] where UserID="+id;
+        ResultSet rs = DBConnection.executeDBSet(sql);
+        User user=new User();
+        while (rs.next())
+        {
+            user = new User(rs.getInt("UserID"),rs.getString("UserName"),rs.getString("Password"),UserType.values()[ rs.getInt("UserTypeID")]);
+
+
+        }
+        DBConnection.closeConnection();
+        return user;
     }
 
     public static List<User> ReteriveUsers() throws SQLException {

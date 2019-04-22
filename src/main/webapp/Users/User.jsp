@@ -69,12 +69,21 @@
                             <th style="width: 10px">#</th>
                             <th>User Name</th>
                             <th>User Type</th>
+                            <th>Settings</th>
+
                         </tr>
 <c:forEach var="item" items="${users}">
     <tr>
         <td>${item.userID}</td>
         <td>${item.userName}</td>
         <td>${item.userType}</td>
+        <td>
+            <div>
+            <a href="Users?updateUser=${item.userID}" class="btn btn-block btn-primary newElement">Update User</a>
+                <a href="#" class="btn btn-block btn-primary newElement">Delete User</a>
+        </div>
+        </td>
+
     </tr>
 </c:forEach>
 

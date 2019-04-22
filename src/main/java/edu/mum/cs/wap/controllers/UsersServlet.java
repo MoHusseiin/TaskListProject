@@ -26,29 +26,36 @@ public class UsersServlet extends HttpServlet {
         String password=request.getParameter("Password");
         String userType=request.getParameter("UserType");
         User user;
-        boolean result;
         if(userId.isEmpty()){
             Integer userTypeId=Integer.parseInt(userType);
              user=new User(userName,password, UserType.values()[userTypeId]);
-            result= userService.Create(user);
-            if(result){
-                session=request.getSession();
-                LoadAllUsers(session,request,response);
-            }
-
+             userService.Create(user);
         }
         else {
-
+            Integer userTypeId=Integer.parseInt(userType);
+            user=new User(Integer.parseInt(userId),userName,password, UserType.values()[userTypeId]);
+            userService.Update(user);
         }
+        response.sendRedirect("Users");
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        HttpSession  session=request.getSession();
         String addNewUser=request.getParameter("addNewUser");
+        String updateUser=request.getParameter("updateUser");
+
         if(addNewUser!=null){
             session.setAttribute("user",new User());
             request.getRequestDispatcher("Users/AddUser.jsp").forward(request,response);
+        }
+        else if(updateUser !=null){
+            int id=Integer.parseInt(updateUser);
+            IUserService userService=new UserService();
+            User user=((UserService) userService).GetById(id);
+            session.setAttribute("user",user);
+            request.getRequestDispatcher("Users/AddUser.jsp").forward(request,response);
+
         }
         else {
             LoadAllUsers(session,request,response);

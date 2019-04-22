@@ -6,6 +6,6 @@ public interface IService<T> {
 
     boolean Create(T model);
     boolean Update (T model);
-    //T GetById(int id);
+    T GetById(int id);
     List<T> GetAll();
 }

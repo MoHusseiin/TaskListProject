@@ -45,4 +45,16 @@ public class UserService  implements IUserService<User> {
         }
         return result;
     }
+
+    @Override
+    public User GetById(int id) {
+        User result=new User();
+        try {
+            result = UserRep.GetUserById(id);
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
