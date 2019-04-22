@@ -30,11 +30,11 @@ public class DBConnection {
     public static ResultSet executeDBSet(String query) throws SQLException{
         dbConnection();
         ResultSet rs = statement.executeQuery(query);
-        closeConnection();
+
         return rs;
     }
 
-    private static void closeConnection() {
+    public static void closeConnection() {
         try{
             if(statement != null)
                 connection.close();

@@ -7,6 +7,22 @@ public class User
     private String Password;
     private  UserType userType;
 
+    public User(){
+
+    }
+    public User(Integer userID, String userName, String password, UserType userType) {
+        UserID = userID;
+        UserName = userName;
+        Password = password;
+        this.userType = userType;
+    }
+
+    public User(String userName, String password, UserType userType) {
+        UserName = userName;
+        Password = password;
+        this.userType = userType;
+    }
+
     public Integer getUserID() {
         return UserID;
     }

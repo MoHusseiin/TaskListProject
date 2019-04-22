@@ -31,6 +31,13 @@
         <artifactId>mssql-jdbc</artifactId>
         <version>7.2.2.jre8</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
   </dependencies>
 
   <build>

@@ -1,6 +1,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,17 +11,17 @@
     <title>Users</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
-    <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,23 +61,24 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form">
+                <form role="form" action="Users" method="post">
+                    <input type="hidden" name="UserID" value="${user.userID}">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="txtUserName">User Name</label>
-                            <input type="text" class="form-control" id="txtUserName" placeholder="Enter user name">
+                            <input type="text" class="form-control" value="${user.userName}" name="UserName" id="txtUserName" placeholder="Enter user name">
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Password</label>
-                            <input type="password" class="form-control" id="txtPassword" placeholder="Password">
+                            <input type="password" name="Password" value="${user.password}" class="form-control" id="txtPassword" placeholder="Password">
                         </div>
                         <div class="form-group">
                             <label for="slUserType">User Type</label>
-                            <select id="slUserType" class="form-control">
+                            <select id="slUserType" class="form-control" name="UserType">
                                 <option value="" selected>Select User Type</option>
-                                <option value="1" >Admin</option>
+                                <option value="0" >Admin</option>
                                 <option value="2" >Project Manager</option>
-                                <option value="3" >Employee</option>
+                                <option value="1" >Developer</option>
                             </select>
 
                         </div>
@@ -104,11 +107,11 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 
 </body>
 </html>
