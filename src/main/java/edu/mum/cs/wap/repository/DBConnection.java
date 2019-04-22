@@ -30,7 +30,6 @@ public class DBConnection {
     public static ResultSet executeDBSet(String query) throws SQLException{
         dbConnection();
         ResultSet rs = statement.executeQuery(query);
-
         return rs;
     }
 

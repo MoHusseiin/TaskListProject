@@ -65,10 +65,11 @@ public class UserRep {
         while (rs.next()) {
             user = new User();
             user.setUserID(rs.getInt("UserID"));
-            user.setPassword(rs.getString("Username"));
-            user.setUserName(rs.getString("Password"));
+            user.setPassword(rs.getString("Password"));
+            user.setUserName(rs.getString("Username"));
             user.setUserType(UserType.values()[rs.getInt("UserTypeID")]);
         }
+        DBConnection.closeConnection();
         return user;
     }
 }
