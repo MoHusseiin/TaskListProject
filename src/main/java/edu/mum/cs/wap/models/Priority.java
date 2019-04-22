@@ -1,6 +1,6 @@
 package edu.mum.cs.wap.models;
 
-public enum Periority {
+public enum Priority {
   Urgent(4),
   High(3),
   Medium(2),
@@ -9,12 +9,12 @@ public enum Periority {
   // declaring private variable for getting values
   private Integer periorityId;
 
-  Periority(Integer periorityId) {
+  Priority(Integer periorityId) {
     this.periorityId = periorityId;
   }
 
   // getter method
-  public Integer getAction() {
+  public Integer getValueId() {
     return this.periorityId;
   }
 
