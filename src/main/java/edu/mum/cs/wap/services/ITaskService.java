@@ -8,7 +8,7 @@ public interface ITaskService<Task> extends IService<Task> {
 
   public List<Task> getTaskByUserId(Integer userId);
 
-  public List<Task> getTaskByISCompleted(Boolean isCompleted);
+  public List<Task> getTaskByISCompleted(Boolean isCompleted, Integer userId);
 
   public List<Task> getTaskByPriority(Priority priority);
 
@@ -16,4 +16,7 @@ public interface ITaskService<Task> extends IService<Task> {
 
   public Category getCategoryById(Integer catId);
 
+  public Integer numberOfCompletedTasks(Integer userId);
+
+  public Integer numberOfNonCompletedTasks(Integer userId);
 }

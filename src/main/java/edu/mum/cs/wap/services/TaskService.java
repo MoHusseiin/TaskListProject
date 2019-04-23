@@ -80,12 +80,12 @@ public class TaskService implements ITaskService<Task> {
     return result;
   }
 
-  public List<Task> getTaskByISCompleted(Boolean isCompleted)
+  public List<Task> getTaskByISCompleted(Boolean isCompleted, Integer userId)
   {
     List<Task> result = new ArrayList<Task>();
 
     try {
-      result = TaskRepo.getTaskByISCompleted(isCompleted);
+      result = TaskRepo.getTaskByISCompleted(isCompleted, userId);
     }
     catch (SQLException e){
       e.printStackTrace();
@@ -122,6 +122,30 @@ public class TaskService implements ITaskService<Task> {
     Category result = new Category();
     try {
       result = TaskRepo.getCategoryById(catId);
+    }
+    catch (SQLException e){
+      e.printStackTrace();
+    }
+    return result;
+  }
+
+  @Override
+  public Integer numberOfCompletedTasks(Integer userId) {
+    Integer result = null;
+    try {
+      result = TaskRepo.numberOfCompletedTasks(userId);
+    }
+    catch (SQLException e){
+      e.printStackTrace();
+    }
+    return result;
+  }
+
+  @Override
+  public Integer numberOfNonCompletedTasks(Integer userId) {
+    Integer result= null;
+    try {
+      result = TaskRepo.numberOfNonCompletedTasks(userId);
     }
     catch (SQLException e){
       e.printStackTrace();
