@@ -129,27 +129,4 @@ public class TaskService implements ITaskService<Task> {
     return result;
   }
 
-  @Override
-  public Integer numberOfCompletedTasks(Integer userId) {
-    Integer result = null;
-    try {
-      result = TaskRepo.numberOfCompletedTasks(userId);
-    }
-    catch (SQLException e){
-      e.printStackTrace();
-    }
-    return result;
-  }
-
-  @Override
-  public Integer numberOfNonCompletedTasks(Integer userId) {
-    Integer result= null;
-    try {
-      result = TaskRepo.numberOfNonCompletedTasks(userId);
-    }
-    catch (SQLException e){
-      e.printStackTrace();
-    }
-    return result;
-  }
 }

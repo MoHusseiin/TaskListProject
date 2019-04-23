@@ -1,6 +1,7 @@
 package edu.mum.cs.wap.models;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Task {
 
@@ -117,5 +118,9 @@ public class Task {
 
   public void setIsChecked(String isChecked) {
     this.isChecked = isChecked;
+  }
+
+  public int calculatedDaysNum() {
+    return Period.between(LocalDate.now(), this.dueDate).getDays();
   }
 }

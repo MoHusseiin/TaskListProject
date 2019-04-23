@@ -78,8 +78,7 @@ public class TaskRepo {
   }
 
   public static List<Task> getTaskByISCompleted(Boolean isCompleted, Integer userId) throws SQLException{
-    cmd = "SELECT * FROM [dbo].[Task]"
-        + " WHERE [isCompleted] = '" + isCompleted + "' AND [AssignedTo_UserID] = '" + userId + "'";
+    cmd = "SELECT * FROM [dbo].[Task] WHERE [isCompleted] = '" + isCompleted + "' AND [AssignedTo_UserID] = '" + userId + "'";
     List<Task> tasks = getListOfTasks(cmd);
     return tasks;
   }
@@ -149,17 +148,4 @@ public class TaskRepo {
     return categories;
   }
 
-  public static Integer numberOfNonCompletedTasks(Integer userId) throws SQLException{
-//    cmd = "SELECT * FROM [dbo].[Task]"
-//            + " WHERE [isCompleted] = '" + isCompleted + "' AND [AssignedTo_UserID] = '" + userId + "'";
-//    List<Task> tasks = getListOfTasks(cmd);
-    return null;
-  }
-
-  public static Integer numberOfCompletedTasks(Integer userId) throws SQLException{
-//    cmd = "SELECT * FROM [dbo].[Task]"
-//            + " WHERE [isCompleted] = '" + isCompleted + "' AND [AssignedTo_UserID] = '" + userId + "'";
-//    List<Task> tasks = getListOfTasks(cmd);
-     return null;
-  }
 }

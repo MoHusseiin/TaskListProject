@@ -16,7 +16,4 @@ public interface ITaskService<Task> extends IService<Task> {
 
   public Category getCategoryById(Integer catId);
 
-  public Integer numberOfCompletedTasks(Integer userId);
-
-  public Integer numberOfNonCompletedTasks(Integer userId);
 }
