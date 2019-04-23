@@ -18,4 +18,7 @@ public enum Priority {
     return this.periorityId;
   }
 
+  public String getName() {
+    return this.name();
+  }
 }

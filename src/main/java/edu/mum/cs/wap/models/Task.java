@@ -12,6 +12,9 @@ public class Task {
   private Priority priority;
   private Boolean isCompleted;
   private String remarks;
+  private LocalDate completedDate;
+
+  private String isChecked;
 
   public Task()
   {
@@ -19,7 +22,7 @@ public class Task {
   }
 
   public Task(Integer taskId, String taskDesc, User user, Category category, LocalDate dueDate,
-      Priority priority, Boolean isCompleted, String remarks) {
+      Priority priority, Boolean isCompleted, String remarks,LocalDate completedDate) {
     this.taskId = taskId;
     this.taskDesc = taskDesc;
     this.user = user;
@@ -28,6 +31,12 @@ public class Task {
     this.priority = priority;
     this.isCompleted = isCompleted;
     this.remarks = remarks;
+    this.completedDate = completedDate;
+
+    if(isCompleted)
+      this.isChecked = "checked";
+    else
+      this.isChecked = "";
   }
 
   public Integer getTaskId() {
@@ -92,5 +101,21 @@ public class Task {
 
   public void setRemarks(String remarks) {
     this.remarks = remarks;
+  }
+
+  public LocalDate getCompletedDate() {
+    return completedDate;
+  }
+
+  public void setCompletedDate(LocalDate completedDate) {
+    this.completedDate = completedDate;
+  }
+
+  public String getIsChecked() {
+    return isChecked;
+  }
+
+  public void setIsChecked(String isChecked) {
+    this.isChecked = isChecked;
   }
 }

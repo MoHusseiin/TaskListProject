@@ -5,6 +5,7 @@ import edu.mum.cs.wap.models.Priority;
 import edu.mum.cs.wap.models.Task;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,7 +92,7 @@ public class TaskRepo {
   }
 
   public static Category getCategoryById(Integer catId) throws SQLException{
-    cmd = "SELECT * FROM FROM [dbo].[Category]"
+    cmd = "SELECT * FROM [dbo].[Category]"
         + " WHERE [CategoryID] = '" + catId + "'";
 
     List<Category> categories = getListOfCategory(cmd);
@@ -114,9 +115,10 @@ public class TaskRepo {
           UserRep.GetUserById(rs.getInt("AssignedTo_UserID")),
           getCategoryById(rs.getInt("CategoryID")),
           rs.getDate("dueDate").toLocalDate(),
-          Priority.values()[rs.getInt("priorityID")],
+          Priority.values()[rs.getInt("priorityID")-1],
           rs.getBoolean("isCompleted"),
-          rs.getString("remarks")
+          rs.getString("remarks"),
+          (rs.getDate("completedDate") == null)? LocalDate.of(1999,1,1) : rs.getDate("completedDate").toLocalDate()
       );
       tasks.add(task);
     }
