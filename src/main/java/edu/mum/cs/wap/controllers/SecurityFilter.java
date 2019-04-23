@@ -37,18 +37,19 @@ public class SecurityFilter implements Filter {
                List<String> roles = new ArrayList<>();
                 switch (user.getUserType()) {
                     case Developer:
-                        forwardPage = "UserDashboard";
-                        roles.add("Tasks");
-                        roles.add("UserDashboard");
-                        break;
+                    forwardPage = "UserDashboard";
+                    roles.add("Tasks");
+                    roles.add("UserDashboard");
+                    break;
                     case Admin:
                         forwardPage = "Users";
                         roles.add("Users");
                         break;
                     case ProjectManager:
-                        forwardPage = "Tasks";
+                        forwardPage = "PMDashboard";
                         roles.add("Tasks");
                         roles.add("Teams");
+                        roles.add("PMDashboard");
                         break;
                 }
                session.setAttribute("currentUser", user);
