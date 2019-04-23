@@ -1,11 +1,20 @@
-
+<%--
+  Created by IntelliJ IDEA.
+  User: Karim
+  Date: 22/04/2019
+  Time: 02:20:09 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>Teams</title>
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Users</title>
@@ -30,32 +39,38 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link href="Map.css" rel="stylesheet">
+
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+
 
     <!-- Main Header -->
     <%@include file="../WEB-INF/header.jsp"%>
     <!-- Left side column. contains the logo and sidebar -->
     <%@include file="../WEB-INF/saidbar.jsp"%>
 
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Users
-                <small>All users</small>
+                Teams
+                <small>All Teams</small>
             </h1>
         </section>
 
         <!-- Main content -->
         <section class="content container-fluid">
             <div>
-                <a href="Users?addNewUser=true" class="btn btn-block btn-primary newElement">Add New User</a>
+                <a href="Teams?addNewTeam=true" class="btn btn-block btn-primary newElement">Add New Team</a>
             </div>
             <div class="box">
                 <div class="box-header">
@@ -67,26 +82,32 @@
                         <tbody>
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>User Name</th>
-                            <th>User Type</th>
+                            <th>Team Name</th>
+                            <th>Project Name</th>
+                            <th>Developer Nums</th>
+
                             <th>Settings</th>
-
                         </tr>
-<c:forEach var="item" items="${users}">
-    <tr>
-        <td>${item.userID}</td>
-        <td>${item.userName}</td>
-        <td>${item.userType}</td>
-        <td>
+                        <c:forEach var="item" items="${teams}">
+                            <tr>
+                                <td>${item.teamId}</td>
+                                <td>${item.teamName}</td>
+                                <td>${item.projectName}</td>
+                                <td>${item.developerNums}</td>
+                                <td>
+                                    <div class="col-md-3"><a href="Teams?updateTeam=${item.teamId}" class="btn btn-block btn-primary newElement">Update Team</a>
+                                    </div>
+                                    <div class="col-md-3"><a data-id="${item.teamId}"  class="btn btn-block btn-primary newElement deleteBtn">Delete Team</a>
+                                    </div>
 
-                <div class="col-md-3"><a href="Users?updateUser=${item.userID}" class="btn btn-block btn-primary newElement">Update User</a>
-                </div>
-                <div class="col-md-3"><a  data-id="${item.userID}"  class="btn btn-block btn-primary newElement deleteBtn">Delete User</a>
-                </div>
-        </td>
+                                    <div class="col-md-3"><a data-id="${item.teamId}"  class="btn btn-block btn-primary newElement mapBtn" data-toggle="modal" data-target="#myModal">Show Team Locations</a>
+                                    </div>
 
-    </tr>
-</c:forEach>
+                                </td>
+                            </tr>
+                        </c:forEach>
+
+
                         </tbody>
                     </table>
                 </div>
@@ -96,6 +117,9 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+
+
 
     <!-- Main Footer -->
     <%@include file="../WEB-INF/footer.jsp"%>
@@ -113,10 +137,52 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-
 <!-- Our Scripts-->
 
-<script src="javaScript/Users/users.js"></script>
+<script src="javaScript/Teams/Teams.js"></script>
+
+<script src="Map.js"></script>
+
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div id="map"></div>
+
+
+                <%--<script async defer--%>
+                        <%--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0nRzrffPIPFK_cTfX0vLpVb4yR7PNKzw&callback=initMap">--%>
+
+                <%--</script>--%>
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
 
 </body>
 </html>

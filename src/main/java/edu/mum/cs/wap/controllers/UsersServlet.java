@@ -52,7 +52,7 @@ public class UsersServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       HttpSession  session=request.getSession();
+        HttpSession  session=request.getSession();
         String addNewUser=request.getParameter("addNewUser");
         String updateUser=request.getParameter("updateUser");
 
@@ -87,7 +87,6 @@ public class UsersServlet extends HttpServlet {
             PrintWriter out=resp.getWriter();
             out.print(result);
         }
-
     }
 
     private void LoadAllUsers (HttpSession session, HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{

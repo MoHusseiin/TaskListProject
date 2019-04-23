@@ -4,44 +4,78 @@ import java.io.PrintWriter;
 
 public class Team {
 
-    private Integer TeamID;
-    private String ProjectName;
-    private String TeamName;
-    private Integer TeamMangerID;
+    private Integer teamId;
+    private String  projectName;
+    private String  teamName;
+    private Integer teamMangerId;
+    private String [] teamUserIds;
+    private Integer developerNums;
 
-
-    public Integer getTeamID() {
-        return TeamID;
+    public Integer getDeveloperNums() {
+        return developerNums;
     }
 
-    public void setTeamID(Integer teamID) {
-        TeamID = teamID;
+    public void setDeveloperNums(Integer DeveloperNums) {
+        developerNums = DeveloperNums;
+    }
+
+
+
+    public Team()
+    {
+
+    }
+    public Team(Integer teamId, String projectName, String teamName, Integer teamMangerId , String [] teamUserIds ) {
+        this.teamId = teamId;
+        this.projectName = projectName;
+        this.teamName = teamName;
+        this.teamUserIds = teamUserIds;
+    }
+    public Team( String projectName, String teamName, Integer teamMangerId , String [] teamUserIds ) {
+
+        this.projectName = projectName;
+        this.teamName = teamName;
+        this.teamMangerId = teamMangerId;
+        this.teamUserIds = teamUserIds;
+    }
+
+    public String[] getTeamUserIds() {
+        return teamUserIds;
+    }
+
+    public void setTeamUserIds(String[] teamUserIds) {
+        this.teamUserIds = teamUserIds;
+    }
+
+    public Integer getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
     }
 
     public String getProjectName() {
-        return ProjectName;
+        return projectName;
     }
 
     public void setProjectName(String projectName) {
-        ProjectName = projectName;
+        this.projectName = projectName;
     }
 
     public String getTeamName() {
-        return TeamName;
+        return teamName;
     }
 
     public void setTeamName(String teamName) {
-        TeamName = teamName;
+        this.teamName = teamName;
     }
 
-    public Integer getTeamMangerID() {
-        return TeamMangerID;
+    public Integer getTeamMangerId() {
+        return teamMangerId;
     }
 
-    public void setTeamMangerID(Integer teamMangerID) {
-        TeamMangerID = teamMangerID;
+    public void setTeamMangerId(Integer teamMangerId) {
+        this.teamMangerId = teamMangerId;
     }
-
-
-
 }
