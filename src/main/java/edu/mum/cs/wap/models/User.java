@@ -1,18 +1,17 @@
 package edu.mum.cs.wap.models;
 
-public class User
-{
+public class User {
     private Integer UserID;
-    private  String UserName;
+    private String UserName;
     private String Password;
-    private  UserType userType;
-    private  String Name;
-    private  String Email;
-    private  String Phone;
-    private  String Address;
-    private  String LngLat;
+    private UserType userType;
+    private String Name;
+    private String Email;
+    private String Phone;
+    private String Address;
+    private String LngLat;
 
-    public User(){
+    public User() {
 
     }
 
@@ -67,6 +66,10 @@ public class User
         return userType;
     }
 
+    public Integer getUserTypeId() {
+        return userType.ordinal();
+    }
+
     public void setUserType(UserType userType) {
         this.userType = userType;
     }
@@ -111,3 +114,5 @@ public class User
         LngLat = lngLat;
     }
 }
+
+ 
