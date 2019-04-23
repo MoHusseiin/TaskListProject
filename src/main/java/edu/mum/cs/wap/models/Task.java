@@ -16,10 +16,22 @@ public class Task {
   private LocalDate completedDate;
 
   private String isChecked;
+  private Boolean showCompleted;
 
   public Task()
   {
+    this.taskId = 0;
+    this.taskDesc = "";
+    this.user = null;
+    this.category = null;
+    this.dueDate = LocalDate.of(1999,1,1);
+    this.priority = null;
+    this.isCompleted = false;
+    this.remarks = "";
+    this.completedDate = LocalDate.of(1999,1,1);;
 
+    this.isChecked = "";
+    this.showCompleted = true;
   }
 
   public Task(Integer taskId, String taskDesc, User user, Category category, LocalDate dueDate,
@@ -34,10 +46,14 @@ public class Task {
     this.remarks = remarks;
     this.completedDate = completedDate;
 
-    if(isCompleted)
+    if(isCompleted) {
       this.isChecked = "checked";
-    else
+      this.showCompleted = false;
+    }
+    else {
       this.isChecked = "";
+      this.showCompleted = true;
+    }
   }
 
   public Integer getTaskId() {
@@ -118,6 +134,14 @@ public class Task {
 
   public void setIsChecked(String isChecked) {
     this.isChecked = isChecked;
+  }
+
+  public Boolean getShowCompleted() {
+    return showCompleted;
+  }
+
+  public void setShowCompleted(Boolean showCompleted) {
+    this.showCompleted = showCompleted;
   }
 
   public int calculatedDaysNum() {

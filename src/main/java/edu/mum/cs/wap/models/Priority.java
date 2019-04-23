@@ -21,4 +21,11 @@ public enum Priority {
   public String getName() {
     return this.name();
   }
+
+  public static Priority getNameByCode(int code){
+    for(Priority e : Priority.values()){
+      if(code == e.getValueId()) return e;
+    }
+    return null;
+  }
 }

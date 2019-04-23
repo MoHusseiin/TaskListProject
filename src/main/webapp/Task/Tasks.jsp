@@ -66,7 +66,7 @@
             </div>
             <div class="box">
                 <div class="box-header">
-                    <h3 id="box-title" class="box-title">Striped Full Width Table</h3>
+                    <h3 id="box-title" class="box-title">User Tasks</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body no-padding">
@@ -97,7 +97,7 @@
                                         <input type="checkbox" name="${item.completed}" value="${item.completed}" ${item.isChecked} disabled>
                                     </div>
 
-                                    <c:if test="${item.completed} = 'false'">
+                                    <c:if test="${item.showCompleted}">
                                         <div class="col-md-9">
                                             <a href="#" data-id="${item.taskId}" class="btn btn-block btn-primary newElement">Completed</a>
                                         </div>
@@ -106,10 +106,12 @@
                                 <td>${item.completedDate}</td>
                                 <td>${item.remarks}</td>
                                 <td>
+                                    <c:if test="${item.showCompleted}">
                                         <div class="col-md-6"><a href="Tasks?updateTask=${item.taskId}" class="btn btn-block btn-primary newElement">Update Task</a>
                                         </div>
                                         <div class="col-md-6"><a href="#" data-id="${item.taskId}"  class="btn btn-block btn-primary newElement deleteBtn">Delete Task</a>
                                         </div>
+                                    </c:if>
                                 </td>
                             </tr>
                         </c:forEach>

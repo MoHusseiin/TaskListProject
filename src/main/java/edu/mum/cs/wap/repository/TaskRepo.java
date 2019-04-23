@@ -21,15 +21,17 @@ public class TaskRepo {
         + "           ,[dueDate] "
         + "           ,[priorityID] "
         + "           ,[isCompleted] "
-        + "           ,[remarks])"
-        + "     VALUES "
+        + "           ,[remarks]"
+        + "           ,[completedDate])"
+        + "     VALUES ("
         + "'" + task.getTaskDesc() + "',"
         + "'" + task.getUser().getUserID() + "',"
         + "'" + task.getCategory().getCategoryId() + "',"
         + "'" + task.getDueDate().toString() + "',"
         + "'" + task.getPriority().getValueId() + "',"
         + "'" + task.getCompleted() + "',"
-        + "'" + task.getRemarks() + "'"
+        + "'" + task.getRemarks() + "',"
+        + "'" + task.getCompletedDate().toString() + "'"
         + ")";
     return DBConnection.executeNonQuery(cmd);
   }
@@ -43,6 +45,7 @@ public class TaskRepo {
         + "      ,[priorityID] = '" + task.getPriority().getValueId() + "' "
         + "      ,[isCompleted] = '" + task.getCompleted() + "' "
         + "      ,[remarks] = '" + task.getRemarks() + "' "
+        + "      ,[completedDate] = '" + task.getCompletedDate().toString() + "' "
         + " WHERE [TaskID] = '" + task.getTaskId() + "'";
     return DBConnection.executeNonQuery(cmd);
   }
@@ -91,7 +94,7 @@ public class TaskRepo {
   }
 
   public static List<Category> getAllCategories() throws SQLException {
-    cmd = "SELECT * FROM FROM [dbo].[Category]";
+    cmd = "SELECT * FROM [dbo].[Category]";
 
     List<Category> categories = getListOfCategory(cmd);
     return categories;
@@ -121,13 +124,16 @@ public class TaskRepo {
           UserRep.GetUserById(rs.getInt("AssignedTo_UserID")),
           getCategoryById(rs.getInt("CategoryID")),
           rs.getDate("dueDate").toLocalDate(),
-          Priority.values()[rs.getInt("priorityID")-1],
+          //Priority.values()[rs.getInt("priorityID")-1],
+          Priority.getNameByCode(rs.getInt("priorityID")),
           rs.getBoolean("isCompleted"),
           rs.getString("remarks"),
           (rs.getDate("completedDate") == null)? LocalDate.of(1999,1,1) : rs.getDate("completedDate").toLocalDate()
       );
       tasks.add(task);
     }
+
+    DBConnection.closeConnection();
     return tasks;
   }
 
@@ -145,6 +151,7 @@ public class TaskRepo {
       categories.add(category);
     }
 
+    DBConnection.closeConnection();
     return categories;
   }
 
