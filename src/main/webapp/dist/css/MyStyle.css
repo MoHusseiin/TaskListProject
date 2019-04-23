@@ -4,3 +4,6 @@
 .error-message{
     color: red;
 }
+#map {
+    height: 400px;
+}

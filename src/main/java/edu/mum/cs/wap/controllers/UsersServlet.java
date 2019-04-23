@@ -28,15 +28,23 @@ public class UsersServlet extends HttpServlet {
         String userName=request.getParameter("UserName");
         String password=request.getParameter("Password");
         String userType=request.getParameter("UserType");
+
+        String name=request.getParameter("Name");
+        String email=request.getParameter("Email");
+        String phone=request.getParameter("Phone");
+        String address=request.getParameter("Address");
+        String lngLat=request.getParameter("LngLat");
+
+
         User user;
         if(userId.isEmpty()){
             Integer userTypeId=Integer.parseInt(userType);
-             user=new User(userName,password, UserType.values()[userTypeId]);
+             user=new User(userName,password, UserType.values()[userTypeId],name,email,phone,address,lngLat);
              userService.Create(user);
         }
         else {
             Integer userTypeId=Integer.parseInt(userType);
-            user=new User(Integer.parseInt(userId),userName,password, UserType.values()[userTypeId]);
+            user=new User(Integer.parseInt(userId),userName,password, UserType.values()[userTypeId],name,email,phone,address,lngLat);
             userService.Update(user);
         }
         response.sendRedirect("Users");

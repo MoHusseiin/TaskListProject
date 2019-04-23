@@ -68,7 +68,13 @@
                 <!-- form start -->
                 <form role="form" action="Users" method="post" id="frmUser">
                     <input type="hidden" name="UserID" value="${user.userID}">
+                    <input type="hidden" name="LngLat" id="txtLngLat" value="${user.lngLat}">
+
                     <div class="box-body">
+                        <div class="form-group">
+                            <label for="txtName">Name</label>
+                            <input type="text" name="Name" value="${user.name}" class="form-control" id="txtName" placeholder="Enter Name">
+                        </div>
                         <div class="form-group">
                             <label for="txtUserName">User Name</label>
                             <input type="text" class="form-control" value="${user.userName}" name="UserName" id="txtUserName" placeholder="Enter user name">
@@ -76,6 +82,22 @@
                         <div class="form-group">
                             <label for="txtPassword">Password</label>
                             <input type="password" name="Password" value="${user.password}" class="form-control" id="txtPassword" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmail">Email</label>
+                            <input type="email" name="Email" value="${user.email}" class="form-control" id="txtEmail" placeholder="Enter Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPhone">Phone</label>
+                            <input type="tel" name="Phone" value="${user.phone}" class="form-control" id="txtPhone" placeholder="Enter Phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtAddress">Address</label>
+                            <input type="text" name="Address" value="${user.address}" class="form-control" id="txtAddress" placeholder="Enter Address">
+                        </div>
+                        <div class="form-group">
+                            <label >Drop on User Location</label>
+                            <div id="map"></div>
                         </div>
                         <div class="form-group">
                             <label for="slUserType">User Type</label>
@@ -117,8 +139,13 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-<!-- Our Scripts-->
 
+<!-- Our Scripts-->
 <script src="javaScript/Users/addUser.js"></script>
+<script src="javaScript/Users/userMap.js"></script>
+<!-- Google Map App -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0nRzrffPIPFK_cTfX0vLpVb4yR7PNKzw&callback=initMap"
+        async defer></script>
 </body>
 </html>
