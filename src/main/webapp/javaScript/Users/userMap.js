@@ -1,10 +1,13 @@
 
     var map;
-    let startPoint={lat: 33.64566, lng: -86.6836};
+    let startPoint;
     var marker;
 
     function initMap() {
-         map = new google.maps.Map(document.getElementById('map'), {
+        //let iniPoint={lat: parseFloat( $("#txtLngLat").val().split(",")[0]), lng: parseFloat($("#txtLngLat").val().split(",")[1])};
+         startPoint=($("#txtLngLat").val())?{lat: parseFloat( $("#txtLngLat").val().split(",")[0]), lng: parseFloat($("#txtLngLat").val().split(",")[1])}:{lat: 33.64566, lng: -86.6836};
+
+        map = new google.maps.Map(document.getElementById('map'), {
             zoom: 8,
             center: startPoint
         });
@@ -16,8 +19,12 @@
             position: startPoint
         });
         marker.addListener('click', toggleBounce);
+        marker.addListener('drag', handleEvent);
+        marker.addListener('dragend', handleEvent);
     }
-
+    function handleEvent(event) {
+        $("#txtLngLat").val(event.latLng.lat()+","+event.latLng.lng());
+    }
     function toggleBounce() {
         if (marker.getAnimation() !== null) {
             marker.setAnimation(null);
