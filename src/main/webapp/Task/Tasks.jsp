@@ -97,7 +97,7 @@
                                         <input type="checkbox" name="${item.completed}" value="${item.completed}" ${item.isChecked} disabled>
                                     </div>
 
-                                    <c:if test="!${item.completed}">
+                                    <c:if test="${item.completed} = 'false'">
                                         <div class="col-md-9">
                                             <a href="#" data-id="${item.taskId}" class="btn btn-block btn-primary newElement">Completed</a>
                                         </div>

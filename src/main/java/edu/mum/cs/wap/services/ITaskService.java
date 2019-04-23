@@ -8,6 +8,8 @@ public interface ITaskService<Task> extends IService<Task> {
 
   public List<Task> getTaskByUserId(Integer userId);
 
+  public List<Task> getTaskByISCompleted(Boolean isCompleted);
+
   public List<Task> getTaskByPriority(Priority priority);
 
   public List<Category> getAllCategories();

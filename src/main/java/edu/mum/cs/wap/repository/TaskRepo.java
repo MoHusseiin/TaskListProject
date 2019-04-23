@@ -77,6 +77,13 @@ public class TaskRepo {
     return tasks;
   }
 
+  public static List<Task> getTaskByISCompleted(Boolean isCompleted) throws SQLException{
+    cmd = "SELECT * FROM [dbo].[Task]"
+        + " WHERE [isCompleted] = '" + isCompleted + "'";
+    List<Task> tasks = getListOfTasks(cmd);
+    return tasks;
+  }
+
   public static List<Task> getTaskByPriority(Priority priority) throws SQLException{
     cmd = "SELECT * FROM [dbo].[Task]"
         + " WHERE [priorityID] = '" + priority.getValueId() + "'";

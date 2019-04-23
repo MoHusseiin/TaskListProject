@@ -80,6 +80,19 @@ public class TaskService implements ITaskService<Task> {
     return result;
   }
 
+  public List<Task> getTaskByISCompleted(Boolean isCompleted)
+  {
+    List<Task> result = new ArrayList<Task>();
+
+    try {
+      result = TaskRepo.getTaskByISCompleted(isCompleted);
+    }
+    catch (SQLException e){
+      e.printStackTrace();
+    }
+    return result;
+  }
+
   @Override
   public List<Task> getTaskByPriority(Priority priority) {
     List<Task> result = new ArrayList<Task>();
