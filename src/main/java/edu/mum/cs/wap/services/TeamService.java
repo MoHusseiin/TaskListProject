@@ -7,6 +7,7 @@ import edu.mum.cs.wap.models.Team;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class TeamService implements ITeamService<Team>  {
@@ -80,6 +81,19 @@ public class TeamService implements ITeamService<Team>  {
         }
         return users;
     }
+
+    public  HashMap<String , HashMap<String , Integer>> getTeamTasks(Integer teamManagerID) {
+        HashMap<String, HashMap<String, Integer>> teamMap = new HashMap<>();
+        try {
+            teamMap = TeamRep.getTeamTasks(teamManagerID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return teamMap;
+    }
+
+
+
 
 
    // @Override
