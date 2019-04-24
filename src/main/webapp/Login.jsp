@@ -15,6 +15,9 @@
 <body>
     <div class="login-page">
         <div class="form">
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Task List </b>Project</span>
+            <br/>
             <form class="login-form" method="POST" action="home">
                 <input type="text" placeholder="username" name="userName"/>
                 <input type="password" placeholder="password" name="password"/>
