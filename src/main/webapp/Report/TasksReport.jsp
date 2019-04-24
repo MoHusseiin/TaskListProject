@@ -75,10 +75,25 @@
                                 <select id="lstUsers" class="form-control" name="user">
                                     <option value="" selected>Select User</option>
                                     <c:forEach var="item" items="${allUserRpt}">
-                                        <option value="${item.userID}" >${item.name}</option>
+                                        <option value="${item.userID}">${item.name}</option>
                                     </c:forEach>
                                 </select>
-                                <input type="submit" value="Search By User">
+                                <div class="radio">
+                                    <label for="rdUserAsc">
+                                        <input type="radio" name="rdUsers" id="rdUserAsc"
+                                               value="asc" checked="">
+                                        Ascending
+                                    </label>
+                                    <label for="rdUserDesc">
+                                        <input type="radio" name="rdUsers" id="rdUserDesc"
+                                               value="desc">
+                                        Descending
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="submit" value="Search By User">
+                                </div>
+
                             </div>
                         </form>
                     </fieldset>
@@ -90,10 +105,24 @@
                                 <select id="lstPriority" class="form-control" name="priority">
                                     <option value="" selected>Select Priority</option>
                                     <c:forEach var="item" items="${prioritiesRpt}">
-                                        <option value="${item.valueId}" >${item.name}</option>
+                                        <option value="${item.valueId}">${item.name}</option>
                                     </c:forEach>
                                 </select>
-                                <input type="submit" value="Search By Priority">
+                                <div class="radio">
+                                    <label for="rdPriorityAsc">
+                                        <input type="radio" name="rdPriority" id="rdPriorityAsc"
+                                               value="asc" checked="">
+                                        Ascending
+                                    </label>
+                                    <label for="rdPriorityDesc">
+                                        <input type="radio" name="rdPriority" id="rdPriorityDesc"
+                                               value="desc">
+                                        Descending
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="submit" value="Search By Priority">
+                                </div>
                             </div>
                         </form>
                     </fieldset>
@@ -105,10 +134,24 @@
                                 <select id="lstTeams" class="form-control" name="team">
                                     <option value="" selected>Select Team</option>
                                     <c:forEach var="item" items="${allTeamsRpt}">
-                                        <option value="${item.teamId}" >${item.teamName}</option>
+                                        <option value="${item.teamId}">${item.teamName}</option>
                                     </c:forEach>
                                 </select>
-                                <input type="submit" value="Search By Team">
+                                <div class="radio">
+                                    <label for="rdTeamsAsc">
+                                        <input type="radio" name="rdTeams" id="rdTeamsAsc"
+                                               value="asc" checked="">
+                                        Ascending
+                                    </label>
+                                    <label for="rdTeamsDesc">
+                                        <input type="radio" name="rdTeams" id="rdTeamsDesc"
+                                               value="desc">
+                                        Descending
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="submit" value="Search By Team">
+                                </div>
                             </div>
                         </form>
                     </fieldset>
@@ -136,7 +179,8 @@
                                 <td>${item.priority.name}</td>
                                 <td>
                                     <div class="col-md-2">
-                                        <input type="checkbox" name="${item.taskId}" value="${item.completed}" ${item.isChecked} disabled>
+                                        <input type="checkbox" name="${item.taskId}"
+                                               value="${item.completed}" ${item.isChecked} disabled>
                                     </div>
                                 </td>
                                 <td>${item.completedDate}</td>
