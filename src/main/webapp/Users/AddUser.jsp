@@ -146,4 +146,4 @@
 <!-- Google Map App -->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0nRzrffPIPFK_cTfX0vLpVb4yR7PNKzw&callback=initMap"
-        async defer></
+        async defer></script>

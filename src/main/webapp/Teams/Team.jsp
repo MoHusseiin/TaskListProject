@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/MyStyle.css">
+
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
@@ -39,7 +41,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link href="Map.css" rel="stylesheet">
 
     <!-- Google Font -->
     <link rel="stylesheet"
@@ -140,11 +141,11 @@
 <!-- Our Scripts-->
 
 <script src="javaScript/Teams/Teams.js"></script>
+<script src="javaScript/Teams/teamMap.js"></script>
 
-<script src="Map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0nRzrffPIPFK_cTfX0vLpVb4yR7PNKzw&callback=initMap"
+        async defer></script>
 
-
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 
 <!-- Modal -->
