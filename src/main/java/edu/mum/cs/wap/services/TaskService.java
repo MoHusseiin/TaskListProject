@@ -129,4 +129,16 @@ public class TaskService implements ITaskService<Task> {
     return result;
   }
 
+  @Override
+  public boolean updateCompleted(int taskId) {
+    boolean result=false;
+    try {
+      result = TaskRepo.updateTaskCompleted(taskId);
+    }
+    catch (SQLException e){
+      e.printStackTrace();
+    }
+    return result;
+  }
+
 }

@@ -1,13 +1,17 @@
 package edu.mum.cs.wap.controllers;
 
+import com.google.gson.Gson;
 import edu.mum.cs.wap.models.Category;
 import edu.mum.cs.wap.models.Priority;
 import edu.mum.cs.wap.models.Task;
 import edu.mum.cs.wap.models.User;
 import edu.mum.cs.wap.services.ITaskService;
 import edu.mum.cs.wap.services.TaskService;
+import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -86,5 +90,49 @@ public class TasksServlet extends HttpServlet {
     List<Task> tasks = taskService.getTaskByUserId(user.getUserID());
     session.setAttribute("userTasks", tasks);
     request.getRequestDispatcher("/Task/Tasks.jsp").forward(request, response);
+  }
+
+  @Override
+  protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+      throws IOException {
+    String _taskId = request.getParameter("TaskId");
+    ITaskService taskService = new TaskService();
+
+    if(!_taskId.isEmpty()) {
+      Integer taskId = Integer.parseInt(_taskId);
+      boolean deleted = taskService.Delete(taskId);
+      response.setContentType("application/json");
+      PrintWriter out = response.getWriter();
+      out.print(deleted);
+    }
+  }
+
+  @Override
+  protected void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException
+  {
+    String _taskId = request.getParameter("TaskId");
+    ITaskService taskService = new TaskService();
+
+    if(!_taskId.isEmpty()) {
+      Integer taskId = Integer.parseInt(_taskId);
+      boolean updated = taskService.updateCompleted(taskId);
+
+
+      PrintWriter out = response.getWriter();
+
+      Map<String, String> outJason = new LinkedHashMap<String,String>();
+      outJason.put("updated",((updated)? "true" : "false"));
+      outJason.put("completeDate",LocalDate.now().toString());
+
+      String json = null;
+      json = new Gson().toJson(outJason);
+
+      response.setContentType("application/json");
+      response.setCharacterEncoding("UTF-8");
+
+      out.write(json);
+
+      //response.sendRedirect("Tasks");
+    }
   }
 }

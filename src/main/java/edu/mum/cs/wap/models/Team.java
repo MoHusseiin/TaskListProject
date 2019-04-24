@@ -19,8 +19,6 @@ public class Team {
         developerNums = DeveloperNums;
     }
 
-
-
     public Team()
     {
 

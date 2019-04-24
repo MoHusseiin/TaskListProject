@@ -155,4 +155,12 @@ public class TaskRepo {
     return categories;
   }
 
+  public static Boolean updateTaskCompleted(int taskId) throws SQLException {
+    cmd = "UPDATE [dbo].[Task] "
+        + "   SET [isCompleted] = 'true' "
+        + "      ,[completedDate] = '" + LocalDate.now() + "' "
+        + " WHERE [TaskID] = '" + taskId + "'";
+    return DBConnection.executeNonQuery(cmd);
+  }
+
 }
