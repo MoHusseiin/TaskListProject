@@ -87,11 +87,13 @@ public class TeamServlet extends HttpServlet {
         else if(teamMapId !=null)
         {
 
-            Integer teamId = 29;
+            Integer teamId = Integer.parseInt(teamMapId);
             ITeamService teamService = new TeamService();
             List<User> teamUsers = ((TeamService) teamService).GetTeamUsers(teamId);
             response.setContentType("application/json");
-            response.getWriter().print(teamUsers);
+            Gson data=new GsonBuilder().create();
+
+            response.getWriter().write(data.toJson(teamUsers));
 
 //            String [] arr = new String[3];
 //            arr[0] ="Karim Bayoumi";
