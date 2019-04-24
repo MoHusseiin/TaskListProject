@@ -137,18 +137,18 @@
                                         <option value="${item.teamId}">${item.teamName}</option>
                                     </c:forEach>
                                 </select>
-                                <div class="radio">
-                                    <label for="rdTeamsAsc">
-                                        <input type="radio" name="rdTeams" id="rdTeamsAsc"
-                                               value="asc" checked>
-                                        Ascending
-                                    </label>
-                                    <label for="rdTeamsDesc">
-                                        <input type="radio" name="rdTeams" id="rdTeamsDesc"
-                                               value="desc">
-                                        Descending
-                                    </label>
-                                </div>
+                                <%--<div class="radio">--%>
+                                    <%--<label for="rdTeamsAsc">--%>
+                                        <%--<input type="radio" name="rdTeams" id="rdTeamsAsc"--%>
+                                               <%--value="asc" checked>--%>
+                                        <%--Ascending--%>
+                                    <%--</label>--%>
+                                    <%--<label for="rdTeamsDesc">--%>
+                                        <%--<input type="radio" name="rdTeams" id="rdTeamsDesc"--%>
+                                               <%--value="desc">--%>
+                                        <%--Descending--%>
+                                    <%--</label>--%>
+                                <%--</div>--%>
                                 <div>
                                     <input type="submit" value="Search By Team">
                                 </div>
