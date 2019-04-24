@@ -29,7 +29,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -185,8 +184,8 @@
                             <div class="pull-right box-tools">
                                 <!-- button with a dropdown -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-bars"></i></button>
+<%--                                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">--%>
+<%--                                        <i class="fa fa-bars"></i></button>--%>
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li><a href="#">Add new event</a></li>
                                         <li><a href="#">Clear events</a></li>
