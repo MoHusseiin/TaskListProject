@@ -70,9 +70,9 @@
                 <div class="box-body no-padding">
                     <fieldset class="col-lg-3 col-xs-6">
                         <legend>Search by User</legend>
-                        <form id="byUser" action="#" method="post">
+                        <form id="byUser" action="TasksReport" method="get">
                             <div>
-                                <select id="lstUsers" class="form-control" name="user">
+                                <select id="lstUsers" class="form-control" name="user" required>
                                     <option value="" selected>Select User</option>
                                     <c:forEach var="item" items="${allUserRpt}">
                                         <option value="${item.userID}">${item.name}</option>
@@ -100,9 +100,9 @@
 
                     <fieldset class="col-lg-3 col-xs-6">
                         <legend>Search by Priority</legend>
-                        <form id="byPriority" action="#" method="post">
+                        <form id="byPriority" action="TasksReport" method="get">
                             <div>
-                                <select id="lstPriority" class="form-control" name="priority">
+                                <select id="lstPriority" class="form-control" name="priority" required>
                                     <option value="" selected>Select Priority</option>
                                     <c:forEach var="item" items="${prioritiesRpt}">
                                         <option value="${item.valueId}">${item.name}</option>
@@ -111,7 +111,7 @@
                                 <div class="radio">
                                     <label for="rdPriorityAsc">
                                         <input type="radio" name="rdPriority" id="rdPriorityAsc"
-                                               value="asc" checked="">
+                                               value="asc" checked>
                                         Ascending
                                     </label>
                                     <label for="rdPriorityDesc">
@@ -129,9 +129,9 @@
 
                     <fieldset class="col-lg-3 col-xs-6">
                         <legend>Search by Team</legend>
-                        <form id="byTeam" action="#" method="post">
+                        <form id="byTeam" action="TasksReport" method="get">
                             <div>
-                                <select id="lstTeams" class="form-control" name="team">
+                                <select id="lstTeams" class="form-control" name="team" required>
                                     <option value="" selected>Select Team</option>
                                     <c:forEach var="item" items="${allTeamsRpt}">
                                         <option value="${item.teamId}">${item.teamName}</option>
@@ -140,7 +140,7 @@
                                 <div class="radio">
                                     <label for="rdTeamsAsc">
                                         <input type="radio" name="rdTeams" id="rdTeamsAsc"
-                                               value="asc" checked="">
+                                               value="asc" checked>
                                         Ascending
                                     </label>
                                     <label for="rdTeamsDesc">

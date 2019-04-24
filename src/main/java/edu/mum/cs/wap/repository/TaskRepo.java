@@ -61,7 +61,16 @@ public class TaskRepo {
     List<Task> tasks = getListOfTasks(cmd);
     return tasks;
   }
-
+  public static List<Task> getAllTasksByTeamId( int teamId) throws SQLException {
+    cmd = "SELECT        Task.TaskID, Task.Description, Task.AssignedTo_UserID, Task.CategoryID, Task.dueDate, Task.priorityID, Task.isCompleted, Task.remarks, Task.completedDate\n" +
+            "FROM            TeamUser INNER JOIN\n" +
+            "                         Team ON TeamUser.TeamID = Team.TeamID INNER JOIN\n" +
+            "                         [User] ON TeamUser.UserID = [User].UserID INNER JOIN\n" +
+            "                         Task ON [User].UserID = Task.AssignedTo_UserID\n" +
+            "WHERE        (Team.TeamID = "+teamId+")";
+    List<Task> tasks = getListOfTasks(cmd);
+    return tasks;
+  }
   public static Task getTaskById(Integer taskId) throws SQLException {
     cmd = "SELECT * FROM [dbo].[Task]"
         + " WHERE [TaskID] = '" + taskId + "'";

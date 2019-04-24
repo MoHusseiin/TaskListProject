@@ -67,7 +67,7 @@ public class User {
     }
 
     public Integer getUserTypeId() {
-        return userType.ordinal();
+        return (userType==null)?-1:userType.ordinal();
     }
 
     public void setUserType(UserType userType) {

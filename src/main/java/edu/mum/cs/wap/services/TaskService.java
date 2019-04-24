@@ -141,4 +141,17 @@ public class TaskService implements ITaskService<Task> {
     return result;
   }
 
+  @Override
+  public List<Task> getTaskByTeamId(Integer teamId) {
+    List<Task> result = new ArrayList<Task>();
+
+    try {
+      result = TaskRepo.getAllTasksByTeamId(teamId);
+    }
+    catch (SQLException e){
+      e.printStackTrace();
+    }
+    return result;
+  }
+
 }

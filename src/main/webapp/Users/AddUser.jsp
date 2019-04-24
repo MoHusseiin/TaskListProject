@@ -69,6 +69,7 @@
                 <form role="form" action="Users" method="post" id="frmUser">
                     <input type="hidden" name="UserID" value="${user.userID}">
                     <input type="hidden" name="LngLat" id="txtLngLat" value="${user.lngLat}">
+                    <input type="hidden" id="UserTypeID" value="${user.userTypeId}">
 
                     <div class="box-body">
                         <div class="form-group">
@@ -102,7 +103,7 @@
                         <div class="form-group">
                             <label for="slUserType">User Type</label>
                             <select id="slUserType" class="form-control" name="UserType">
-                                <option value="" selected>Select User Type</option>
+                                <option value="-1" selected>Select User Type</option>
                                 <option value="0" >Admin</option>
                                 <option value="2" >Project Manager</option>
                                 <option value="1" >Developer</option>
