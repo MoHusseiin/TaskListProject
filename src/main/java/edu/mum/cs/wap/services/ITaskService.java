@@ -16,4 +16,6 @@ public interface ITaskService<Task> extends IService<Task> {
 
   public Category getCategoryById(Integer catId);
 
+  public boolean updateCompleted(int taskId);
+
 }

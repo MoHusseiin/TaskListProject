@@ -60,16 +60,59 @@
 
         <!-- Main content -->
         <section class="content container-fluid">
-            <div>
-                <a href="Tasks?addNewTask=true" class="btn btn-block btn-primary newElement">Add New
-                    Task</a>
-            </div>
+
+
             <div class="box">
                 <div class="box-header">
-                    <h3 id="box-title" class="box-title">User Tasks</h3>
+                    <h3 id="box-title" class="box-title">Tasks</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body no-padding">
+                    <fieldset class="col-lg-3 col-xs-6">
+                        <legend>Search by User</legend>
+                        <form id="byUser" action="#" method="post">
+                            <div>
+                                <select id="lstUsers" class="form-control" name="user">
+                                    <option value="" selected>Select User</option>
+                                    <c:forEach var="item" items="${allUserRpt}">
+                                        <option value="${item.userID}" >${item.name}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="submit" value="Search By User">
+                            </div>
+                        </form>
+                    </fieldset>
+
+                    <fieldset class="col-lg-3 col-xs-6">
+                        <legend>Search by Priority</legend>
+                        <form id="byPriority" action="#" method="post">
+                            <div>
+                                <select id="lstPriority" class="form-control" name="priority">
+                                    <option value="" selected>Select Priority</option>
+                                    <c:forEach var="item" items="${prioritiesRpt}">
+                                        <option value="${item.valueId}" >${item.name}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="submit" value="Search By Priority">
+                            </div>
+                        </form>
+                    </fieldset>
+
+                    <fieldset class="col-lg-3 col-xs-6">
+                        <legend>Search by Team</legend>
+                        <form id="byTeam" action="#" method="post">
+                            <div>
+                                <select id="lstTeams" class="form-control" name="team">
+                                    <option value="" selected>Select Team</option>
+                                    <c:forEach var="item" items="${allTeamsRpt}">
+                                        <option value="${item.teamId}" >${item.teamName}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="submit" value="Search By Team">
+                            </div>
+                        </form>
+                    </fieldset>
+
                     <table class="table table-striped">
                         <tbody>
                         <tr>
@@ -82,9 +125,8 @@
                             <th>Completed</th>
                             <th>Completed Date</th>
                             <th>Comments</th>
-                            <th></th>
                         </tr>
-                        <c:forEach var="item" items="${userTasks}">
+                        <c:forEach var="item" items="${allTasksRpt}">
                             <tr>
                                 <td>${item.taskId}</td>
                                 <td>${item.category.categoryName}</td>
@@ -96,23 +138,9 @@
                                     <div class="col-md-2">
                                         <input type="checkbox" name="${item.taskId}" value="${item.completed}" ${item.isChecked} disabled>
                                     </div>
-
-                                    <c:if test="${item.showCompleted}">
-                                        <div class="col-md-9">
-                                            <a href="#" data-id="${item.taskId}" class="btn btn-block btn-primary newElement completeBtn">Completed</a>
-                                        </div>
-                                    </c:if>
                                 </td>
                                 <td>${item.completedDate}</td>
                                 <td>${item.remarks}</td>
-                                <td>
-                                    <c:if test="${item.showCompleted}">
-                                        <div class="col-md-6"><a href="Tasks?updateTask=${item.taskId}" class="btn btn-block btn-primary newElement updateElement">Update Task</a>
-                                        </div>
-                                        <div class="col-md-6"><a href="#" data-id="${item.taskId}"  class="btn btn-block btn-primary newElement deleteBtn">Delete Task</a>
-                                        </div>
-                                    </c:if>
-                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -142,8 +170,6 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 <!-- Our Scripts-->
-
-<script src="javaScript/Tasks/tasks.js"></script>
 
 </body>
 </html>
