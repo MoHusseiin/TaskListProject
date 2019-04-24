@@ -10,7 +10,7 @@ public class DBConnection {
     private static void dbConnection(){
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            connection = DriverManager.getConnection("jdbc:sqlserver://197.44.4.216:1433;DatabaseName=Tasks","oryx", "oryx");
+            connection = DriverManager.getConnection("jdbc:sqlserver://SQL5013.site4now.net:1433;DatabaseName=DB_A27259_Tasks","DB_A27259_Tasks_admin", "Admin@wap123");
             statement = connection.createStatement();
         }catch (Exception ex){
             ex.printStackTrace();

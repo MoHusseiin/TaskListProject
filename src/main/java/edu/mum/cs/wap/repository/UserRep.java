@@ -74,4 +74,28 @@ public class UserRep {
         DBConnection.closeConnection();
         return user;
     }
+
+    public static List<User> getUserByUserType(UserType userType) throws SQLException {
+        String sql = "Select * From [User] Where UserTypeID = "+userType.ordinal();
+        ResultSet rs = DBConnection.executeDBSet(sql);
+        List<User> Users = new ArrayList<User>();
+        User User = null;
+        while (rs.next())
+        {
+            User = new User();
+
+            User.setUserID(rs.getInt("UserID"));
+            User.setUserName(rs.getString("UserName"));
+            User.setUserType(UserType.values()[ rs.getInt("UserTypeID")]);
+            User.setName(rs.getString("Name"));
+            User.setEmail(rs.getString("Email"));
+            User.setPhone(rs.getString("Phone"));
+            User.setAddress(rs.getString("Address"));
+            User.setLngLat(rs.getString("LngLat"));
+
+            Users.add(User);
+        }
+        DBConnection.closeConnection();
+        return Users;
+    }
 }

@@ -82,7 +82,7 @@ public class TeamService implements ITeamService<Team>  {
         return users;
     }
 
-    public  HashMap<String , HashMap<String , Integer>> getTeamTasks(Integer teamManagerID) {
+    public HashMap<String , HashMap<String , Integer>> getTeamTasks(Integer teamManagerID) {
         HashMap<String, HashMap<String, Integer>> teamMap = new HashMap<>();
         try {
             teamMap = TeamRep.getTeamTasks(teamManagerID);
@@ -92,9 +92,15 @@ public class TeamService implements ITeamService<Team>  {
         return teamMap;
     }
 
-
-
-
+    public Integer[] getCompletedAndNonCompletedTasks(Integer userId) {
+        Integer[] arr = null;
+        try {
+            arr = TeamRep.getCompletedAndNonCompletedTasks(userId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return arr;
+    }
 
    // @Override
     public boolean Delete(int id) {

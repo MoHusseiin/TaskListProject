@@ -65,7 +65,7 @@ public class TeamServlet extends HttpServlet {
 
 
         IUserService userService =new UserService();
-        List<User> users =userService.GetAll();
+        List<User> users =userService.getUserByUserType(UserType.Developer);
         session.setAttribute("users",users);
 
 

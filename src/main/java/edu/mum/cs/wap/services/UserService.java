@@ -1,6 +1,7 @@
 package edu.mum.cs.wap.services;
 
 import edu.mum.cs.wap.models.User;
+import edu.mum.cs.wap.models.UserType;
 import edu.mum.cs.wap.repository.UserRep;
 
 import java.sql.SQLException;
@@ -66,6 +67,18 @@ public class UserService  implements IUserService<User> {
             e.printStackTrace();
         }
         return  user;
+    }
+
+    @Override
+    public List<User> getUserByUserType(UserType userType) {
+        List<User> result=new ArrayList<>();
+        try {
+            result = UserRep.getUserByUserType(userType);
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override

@@ -107,7 +107,7 @@ import java.util.List;
         public static List<User> getTeamUsers(Integer teamId) throws SQLException {
             List<User> users = new ArrayList<User>();
 
-            String sql = "  SELECT        dbo.[User].UserID, dbo.[User].Username, dbo.[User].Password, dbo.[User].UserTypeID, dbo.[User].Name, dbo.[User].Email, dbo.[User].Phone, dbo.[User].Address, dbo.[User].LngLat, dbo.TeamUser.TeamID FROM            dbo.[User] INNER JOIN dbo.TeamUser ON dbo.[User].UserID = dbo.TeamUser.UserID WHERE        (dbo.TeamUser.TeamID = " + teamId + ") ";
+            String sql = "  SELECT  dbo.[User].UserID, dbo.[User].Username, dbo.[User].Password, dbo.[User].UserTypeID, dbo.[User].Name, dbo.[User].Email, dbo.[User].Phone, dbo.[User].Address, dbo.[User].LngLat, dbo.TeamUser.TeamID FROM            dbo.[User] INNER JOIN dbo.TeamUser ON dbo.[User].UserID = dbo.TeamUser.UserID WHERE        (dbo.TeamUser.TeamID = " + teamId + ") ";
             ResultSet rs = DBConnection.executeDBSet(sql);
 
             while (rs.next()) {
@@ -139,6 +139,7 @@ import java.util.List;
                 team.setTeamName(rs.getString("TeamName"));
                 team.setTeamMangerId(rs.getInt("TeamMangerID"));
             }
+            DBConnection.closeConnection();
             return team;
         }
 
@@ -155,7 +156,7 @@ import java.util.List;
             HashMap<String , HashMap<String , Integer>>  teamMap = new HashMap<>();
            // Map<String, Map <String, Integer>> teams = new HashMap<>();
 
-            String sql = "SELECT    TeamID , TeamName  FROM  dbo.Team  WHERE   (TeamMangerID = '" + teamManagerID + "')";
+            String sql = "SELECT TeamID, TeamName  FROM  dbo.Team  WHERE (TeamMangerID = '" + teamManagerID + "')";
             ResultSet rs = DBConnection.executeDBSet(sql);
 
             while (rs.next())
@@ -165,24 +166,24 @@ import java.util.List;
 
                 HashMap<String, Integer> m = new HashMap<>();
 
-                String sql2 = " SELECT     dbo.[User].Name,(Select COUNT(*) From Task Where AssignedTo_UserID =  dbo.[User].UserID AND  ISNULL(IsCompleted,0) =0) AS InCompleted , (Select COUNT(*) From Task Where AssignedTo_UserID =  dbo.[User].UserID AND IsCompleted =1) AS Completed FROM         dbo.TeamUser INNER JOIN dbo.[User] ON dbo.TeamUser.UserID = dbo.[User].UserID   WHERE     (dbo.TeamUser.TeamID = '"+teamId+"') ";
+                String sql2 = "SELECT dbo.[User].Name,(Select COUNT(*) From Task Where AssignedTo_UserID = dbo.[User].UserID AND IsCompleted = 'false') AS InCompleted, (Select COUNT(*) From Task Where AssignedTo_UserID = dbo.[User].UserID AND IsCompleted = 'true') AS Completed FROM dbo.TeamUser INNER JOIN dbo.[User] ON dbo.TeamUser.UserID = dbo.[User].UserID  WHERE (dbo.TeamUser.TeamID = '"+teamId+"')";
                 ResultSet rs2 = DBConnection.executeDBSet(sql2);
                 while (rs2.next()) {
 
-                    Integer Completed = rs.getInt("Completed");
-                    Integer InCompleted = rs.getInt("InCompleted");
+                    Integer Completed = rs2.getInt("InCompleted");
+                    Integer InCompleted = rs2.getInt("Completed");
 
-                   Integer presentage = 100;
+                    Integer presentage = 100;
 
                 try {
-                    presentage = (int) (((float) Completed / (Completed + InCompleted) ) * 100);
-                }
-                catch (Exception ex)
+                    presentage = (int) (((float) InCompleted / (Completed + InCompleted) ) * 100);
+//                    if (presentage == 0 ) presentage = 100;
+                }catch (Exception ex)
                     {
                         presentage = 100;
                     }
 
-                    m.put(rs.getString("Name"),presentage);
+                    m.put(rs2.getString("Name"), presentage);
                 }
                 teamMap.put(teamName, m);
 
@@ -192,6 +193,38 @@ import java.util.List;
             return  teamMap;
         }
 
+        public static Integer[] getCompletedAndNonCompletedTasks(Integer userId) throws SQLException {
+            String sql = "select   \n" +
+                    "\n" +
+                    "(SELECT     COUNT(dbo.Task.TaskID) AS InCompleted\n" +
+                    "FROM         dbo.Team INNER JOIN\n" +
+                    "                      dbo.TeamUser ON dbo.Team.TeamID = dbo.TeamUser.TeamID INNER JOIN\n" +
+                    "                      dbo.[User] ON dbo.TeamUser.UserID = dbo.[User].UserID INNER JOIN\n" +
+                    "                      dbo.Task ON dbo.[User].UserID = dbo.Task.AssignedTo_UserID\n" +
+                    "                      \n" +
+                    "                      Where      (dbo.Team.TeamMangerID = "+userId+") AND (dbo.Task.IsCompleted = 0)\n" +
+                    "                      \n" +
+                    "GROUP BY dbo.Team.TeamMangerID ) AS InCompleted\n" +
+                    ",\n" +
+                    "(\n" +
+                    "SELECT     COUNT(dbo.Task.TaskID) AS Completed\n" +
+                    "FROM         dbo.Team INNER JOIN\n" +
+                    "                      dbo.TeamUser ON dbo.Team.TeamID = dbo.TeamUser.TeamID INNER JOIN\n" +
+                    "                      dbo.[User] ON dbo.TeamUser.UserID = dbo.[User].UserID INNER JOIN\n" +
+                    "                      dbo.Task ON dbo.[User].UserID = dbo.Task.AssignedTo_UserID\n" +
+                    "                      \n" +
+                    "                      Where      (dbo.Team.TeamMangerID = "+userId+") AND (dbo.Task.IsCompleted = 1)\n" +
+                    "                      \n" +
+                    "GROUP BY dbo.Team.TeamMangerID  ) AS Completed\n" +
+                    "\n" +
+                    " From [User] Where UserID = "+userId;
+            ResultSet rs = DBConnection.executeDBSet(sql);
+            Integer[] arr = new Integer[2];
+            while (rs.next()) {
+                arr[0] = rs.getInt("InCompleted");
+                arr[1] = rs.getInt("Completed");
+            }
+            DBConnection.closeConnection();
+            return arr;
+        }
     }
-
-
