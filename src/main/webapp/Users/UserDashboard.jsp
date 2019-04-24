@@ -142,7 +142,7 @@
                         <div class="box-body">
                             <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
                             <ul class="todo-list">
-                                <c:forEach var="notCompletedTask" items="${tasksNotCompleted}">
+                                <c:forEach var="notCompletedTask" items="${tasksNotCompleted}" varStatus="status">
                                     <li>
                                         <!-- drag handle -->
                                         <span class="handle">
@@ -155,7 +155,7 @@
                                         <span class="text">${notCompletedTask.taskDesc}</span>
                                         <!-- Emphasis label -->
                                         <!-- General tools such as edit or delete-->
-                                        <small class="label label-danger"><i class="fa fa-clock-o"></i> ${notCompletedTask.calculatedDaysNum()} days</small>
+                                        <small class="label label-${status.index % 2 == 0 ? ((status.index % 3 == 0) ? 'danger' : 'info'): 'warning' }"><i class="fa fa-clock-o"></i> ${notCompletedTask.calculatedDaysNum()} days</small>
 
                                         <div class="tools">
                                             <i class="fa fa-edit"></i>

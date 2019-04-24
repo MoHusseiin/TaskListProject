@@ -49,6 +49,7 @@ public class SecurityFilter implements Filter {
                         forwardPage = "PMDashboard";
                         roles.add("Tasks");
                         roles.add("Teams");
+                        roles.add("TasksReport");
                         roles.add("PMDashboard");
                         break;
                 }
